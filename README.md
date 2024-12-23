@@ -36,16 +36,9 @@
      pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post5/triton-3.1.0-cp310-cp310-win_amd64.whl
      ```
 
-5. 安装bnb
+5. 安装datasets
 
      ```
-     pip install bitsandbytes
-     ```
-
-6. 安装trl, datasets
-
-     ```
-     pip install trl
      pip install datasets
      ```
 
@@ -86,18 +79,6 @@
      ```
      xFormers 0.0.27.post2
      ...
-     ```
-
-4. 验证bnb可用
-
-     ```
-     python -m bitsandbytes
-     ```
-
-     ```
-     Checking that the library is importable and CUDA is callable...
-     SUCCESS!
-     Installation was successful!
      ```
 
 ## 准备基座模型和数据集
