@@ -149,7 +149,7 @@ def run(args):
                     model.push_to_hub_gguf(
                         hub_path=args.hub_path,
                         hub_token=args.hub_token,
-                        quantization_method=quantization_method,
+                        quantization_method=args.quantization,
                     )
         else:
             model.save_pretrained_merged(args.save_path, tokenizer, args.save_method)

@@ -1,0 +1,7 @@
+
+/.idea
+/dataset
+/dataset_conv
+/outputs
+*.pyc
+/weights
