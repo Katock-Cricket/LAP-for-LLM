@@ -501,7 +501,6 @@ class Optimizer2State(Optimizer8bit):
 
         state = self.state[p]
         grad = p.grad
-
         config = self.get_config(gindex, pindex, group)
 
         state["step"] += 1
@@ -518,6 +517,7 @@ class Optimizer2State(Optimizer8bit):
             gnorm_scale = 1.0
 
         if state["state1"].dtype == torch.float:
+            print("Warning: using 32-bit optimizer for 8-bit parameter")
             F.optimizer_update_32bit(
                 self.optimizer_name,
                 grad,
@@ -537,8 +537,8 @@ class Optimizer2State(Optimizer8bit):
                 max_unorm=config["max_unorm"],
                 skip_zeros=config["skip_zeros"],
             )
-
         elif state["state1"].dtype == torch.uint8 and not config["block_wise"]:
+            print("Warning: using a deprecated 8-bit optimizer")
             F.optimizer_update_8bit(
                 self.optimizer_name,
                 grad,

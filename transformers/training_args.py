@@ -162,6 +162,7 @@ class OptimizerNames(ExplicitEnum):
     ADAMW_BNB = "adamw_bnb_8bit"
     ADAMW_8BIT = "adamw_8bit"  # just an alias for adamw_bnb_8bit
     ADEMAMIX_8BIT = "ademamix_8bit"
+    LEAD_ADAM = 'lead_adam'
     LION_8BIT = "lion_8bit"
     LION = "lion_32bit"
     PAGED_ADAMW = "paged_adamw_32bit"

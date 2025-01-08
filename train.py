@@ -23,21 +23,23 @@ def train():
         dataset_num_proc=2,
         packing=False,  # Can make training 5x faster for short sequences.
         args=TrainingArguments(
-            per_device_train_batch_size=2,
-            gradient_accumulation_steps=4,
-            warmup_steps=5,
+            per_device_train_batch_size=1,
+            gradient_accumulation_steps=1,
+            warmup_steps=0,
             # num_train_epochs = 1, # Set this for 1 full training run.
-            max_steps=1,
+            max_steps=5,
             learning_rate=2e-4,
             fp16=not is_bfloat16_supported(),
             bf16=is_bfloat16_supported(),
             logging_steps=1,
-            optim="adamw_8bit",
+            # optim="adamw_8bit",
+            optim="lead_adam",
             weight_decay=0.01,
             lr_scheduler_type="linear",
             seed=3407,
             output_dir="outputs",
-            report_to="none",  # Use this for WandB etc
+            report_to=None,  # Use this for WandB etc
+            # report_to="tensorboard",  # Use this for WandB etc
         ),
     )
     trainer = train_on_responses_only(

@@ -1,5 +1,7 @@
 # LAP-for-LLM
 
+https://github.com/Katock-Cricket/LAP-for-LLM
+
 拟修改大模型训练时使用的优化器，应用最小作用量原理。
 
 拟基于unsloth推理训练框架的源码修改，可能继续加入trl等库的源码用于修改优化器层面的逻辑。
@@ -46,6 +48,12 @@
 
      ```
      pip3 install -U xformers torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+     ```
+
+7. 安装tensorboardX，用来看训练效率
+
+     ```
+     pip install tensorboardX
      ```
 
 ## 验证环境

@@ -1767,12 +1767,14 @@ def optimizer_update_8bit_blockwise(
     if g.dtype == torch.float32 and state1.dtype == torch.uint8:
         optim_func = str2optimizer8bit_blockwise[optimizer_name][0]
     elif g.dtype == torch.float16 and state1.dtype == torch.uint8:
+        print('Warning: using fp16')
         optim_func = str2optimizer8bit_blockwise[optimizer_name][1]
     elif (
         g.dtype == torch.bfloat16
         and state1.dtype == torch.uint8
         and len(str2optimizer8bit_blockwise[optimizer_name]) == 3
     ):
+        print('Warning: using bfloat16')
         optim_func = str2optimizer8bit_blockwise[optimizer_name][2]
     else:
         raise ValueError(
